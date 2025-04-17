@@ -70,8 +70,11 @@ if st.button("Predict Probability"):
             'rrr': [rrr]
         })
 
+        # One-Hot Encode categorical variables if necessary
+        input_df_encoded = pd.get_dummies(input_df, columns=['batting_team', 'bowling_team', 'city'])
+
         try:
-            result = pipe.predict_proba(input_df)
+            result = pipe.predict_proba(input_df_encoded)
             win = result[0][1]
             loss = result[0][0]
 
