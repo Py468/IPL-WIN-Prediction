@@ -17,8 +17,9 @@ cities = [
     'Mohali', 'Bengaluru'
 ]
 
-# Load the trained pipeline
-pipe = pickle.load(open('pipe3.pkl', 'rb'))
+import joblib  # ✅ ADD THIS
+pipe = joblib.load('pipe3.pkl')  # ✅ FIX THIS LINE
+
 
 st.title("🏏 IPL WIN PREDICTION")
 
