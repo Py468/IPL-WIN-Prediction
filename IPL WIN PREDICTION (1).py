@@ -308,7 +308,8 @@ X_train
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 trf=ColumnTransformer([
-    ('trf',OneHotEncoder(sparse=False,drop='first'),['batting_team','bowling_team','city'])
+    ('trf',OneHotEncoder(sparse_output=False, drop='first')
+,['batting_team','bowling_team','city'])
 ],remainder='passthrough')
 
 
