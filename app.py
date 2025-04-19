@@ -18,11 +18,8 @@ cities = [
 ]
 
 
-import os
-import joblib
+from IPLmodel import model as pipe
 
-model_path = os.path.join(os.getcwd(), 'modelnew.pkl')
-pipe = joblib.load(model_path)
 
 
 st.title("🏏 IPL WIN PREDICTION")
