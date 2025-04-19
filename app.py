@@ -18,7 +18,7 @@ cities = [
 ]
 
 import joblib  # ✅ ADD THIS
-pipe = joblib.load('pipe3.pkl')  # ✅ FIX THIS LINE
+pipe = joblib.load('modelnew.pkl')  # ✅ FIX THIS LINE
 
 
 st.title("🏏 IPL WIN PREDICTION")
