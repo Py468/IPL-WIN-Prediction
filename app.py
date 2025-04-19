@@ -17,8 +17,12 @@ cities = [
     'Mohali', 'Bengaluru'
 ]
 
-import joblib  # ✅ ADD THIS
-pipe = joblib.load('modelnew.pkl')  # ✅ FIX THIS LINE
+
+import os
+import joblib
+
+model_path = os.path.join(os.getcwd(), 'modelnew.pkl')
+pipe = joblib.load(model_path)
 
 
 st.title("🏏 IPL WIN PREDICTION")
