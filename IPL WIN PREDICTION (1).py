@@ -381,21 +381,8 @@ delivery_df['city'].unique()
 
 # In[63]:
 
-
-#import pickle
-#pickle.dump(pipe,open('pipe3.pkl','wb'))
 import joblib
-joblib.dump(pipe, 'pipe3.pkl')
-
-
-# In[64]:
-
-
-pipe = joblib.load('pipe3.pkl')
-
-
-# In[ ]:
-
+joblib.dump(pipe, 'modelnew.pkl')
 
 
 
@@ -405,20 +392,6 @@ pipe = joblib.load('pipe3.pkl')
 
 
 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 
