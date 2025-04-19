@@ -381,7 +381,7 @@ delivery_df['city'].unique()
 
 
 # In[63]:
-
+model=pipe
 import joblib
 joblib.dump(pipe, 'modelnew.pkl')
 
