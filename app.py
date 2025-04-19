@@ -1,6 +1,7 @@
 import streamlit as st
-import pickle
 import pandas as pd
+import joblib
+import os
 
 teams = [
     'Sunrisers Hyderabad', 'Mumbai Indians', 'Royal Challengers Bengaluru',
@@ -17,13 +18,9 @@ cities = [
     'Mohali', 'Bengaluru'
 ]
 
-
-import os
-import joblib
-
+# Load model pipeline
 model_path = os.path.join(os.getcwd(), 'modelnew.pkl')
 pipe = joblib.load(model_path)
-
 
 st.title("🏏 IPL WIN PREDICTION")
 
@@ -68,8 +65,12 @@ if st.button("Predict Probability"):
             'rrr': [rrr]
         })
 
-        st.write("📊 Match Situation", input_df)
+        # Ensure correct types for categorical columns
+        input_df['batting_team'] = input_df['batting_team'].astype('category')
+        input_df['bowling_team'] = input_df['bowling_team'].astype('category')
+        input_df['city'] = input_df['city'].astype('category')
 
+        # Prediction
         prediction = pipe.predict_proba(input_df)
         win_prob = prediction[0][1]
         loss_prob = prediction[0][0]
